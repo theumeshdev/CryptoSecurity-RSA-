@@ -20,13 +20,13 @@ public class EncryptDecryptRSAController {
   }
 
   @PostMapping("/encrpyt")
-  public String encryptMessage(@RequestBody String plainString) {
-    return encryptDecryptService.encryptMessage(plainString);
+  public String encryptMessage(@RequestBody EncryptionRequest encryptionRequest) {
+    return encryptDecryptService.encryptMessage(encryptionRequest.getData());
   }
 
 
   @PostMapping("/decrpyt")
-  public String decryptMessage(@RequestBody String encryptString) {
-    return encryptDecryptService.decryptMessage(encryptString);
+  public String decryptMessage(@RequestBody DencryptionRequest dencryptionRequest) {
+    return encryptDecryptService.decryptMessage(dencryptionRequest.getData());
   }
 }
