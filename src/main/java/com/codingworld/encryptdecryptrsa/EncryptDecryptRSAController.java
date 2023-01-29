@@ -15,8 +15,8 @@ public class EncryptDecryptRSAController {
   EncryptDecryptService encryptDecryptService;
 
   @GetMapping("/createKeys")
-  public void createPrivatePublickey() {
-    encryptDecryptService.createKeys();
+  public String createPrivatePublickey() {
+    return encryptDecryptService.createKeys();
   }
 
   @PostMapping("/encrpyt")

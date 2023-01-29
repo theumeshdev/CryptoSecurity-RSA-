@@ -17,7 +17,8 @@ public class EncryptDecryptService {
 
   public static Map<String, Object> map = new HashMap<>();
 
-  public void createKeys() {
+
+  public String createKeys() {
     try {
       KeyPairGenerator keyPairGenerator = KeyPairGenerator.getInstance("RSA");
       keyPairGenerator.initialize(4096);
@@ -26,10 +27,13 @@ public class EncryptDecryptService {
       PrivateKey privateKey = keyPair.getPrivate();
       map.put("publicKey", publicKey);
       map.put("privateKey", privateKey);
+      System.out.print("publicKey >>>>>> "+map.get("publicKey"));
+      System.out.print("privateKey >>>>>> "+map.get("privateKey"));
 
     } catch (Exception e) {
       e.printStackTrace();
     }
+    return "Key is created successfully.!";
   }
 
   public String encryptMessage(String plainText) {
